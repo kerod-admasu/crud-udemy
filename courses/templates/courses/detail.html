@@ -1,0 +1,8 @@
+{% extends 'courses/base.html' %} {% block course_content %}
+<div class="container p-5">
+  <img src="{{course.course_img.url}}" />
+  <h1>{{course.title}}</h1>
+  <a href="{% url 'course-update' course.id %}">update</a>
+  <p>{{course.description}}</p>
+</div>
+{% endblock course_content %}

@@ -1,0 +1,138 @@
+{% extends 'courses/base.html' %} {% load static %} {% block hero_content %}
+<section class="section-hero mb-5">
+  <div
+    id="carouselExampleDark"
+    class="carousel carousel-dark slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleDark"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleDark"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleDark"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="5000">
+        <div class="image-container">
+          <img
+            src="{% static 'courses/image/udemy_hero.png' %}"
+            class="img-fluid h-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-caption d-none d-md-block"></div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <div class="image-container">
+          <img
+            src="{% static 'courses/image/udemy-hero-img 2.jpg' %}"
+            class="img-fluid h-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-caption d-none d-md-block"></div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <div class="image-container">
+          <img
+            src="{% static 'courses/image/udemy-hero-img 3.jpg' %}"
+            class="img-fluid h-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-caption d-none d-md-block"></div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+{% endblock hero_content %} {% block course_content %}
+
+<section class="section-courses">
+  <div class="container-fluid ms-3">
+    <h2>A broad selection of courses</h2>
+    <p>
+      Choose from over 210,000 online video courses with new additions published
+      every month
+    </p>
+    <ul class="nav">
+      {% for category in categories %}
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'category' category.name %}"
+          >{{category.name}}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% block courses_in_category %}
+  <div class="mt-3 mb-5 p-3">
+    <h2>{{cat.name}}</h2>
+    <p>
+      Take one of Udemy’s range of Python courses and learn how to code using
+      this incredibly useful language. Its simple syntax and readability makes
+      Python perfect for Flask, Django, data science, and machine learning.
+      You’ll learn how to build everything from games to sites to apps. Choose
+      from a range of courses that will appeal to
+    </p>
+    <button class="btn btn-primary" type="button">Explore {{cat.name}}</button>
+
+    <div class="row mt-2 p-4 gy-4">
+      {% for course in courses %}
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center">
+          <a href="{% url 'detail' course.id %}">
+            <img
+              src="{{course.course_img.url}}"
+              class="card-img-top"
+              alt="..."
+            />
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{course.title}}</h5>
+            <p class="card-text">{{course.teacher}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% endblock courses_in_category %}
+</section>
+
+{% endblock course_content %}

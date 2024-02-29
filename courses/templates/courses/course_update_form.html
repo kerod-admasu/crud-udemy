@@ -1,0 +1,29 @@
+{% extends 'courses/base.html' %} {% load crispy_forms_tags %} {% load
+crispy_forms_filters %} {% block hero_content %}
+
+<div class="container">
+  <div class="row align-items-start p-4 mt-3 mb-4">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="content-section">
+        <form method="POST">
+          {% csrf_token %}
+          <fieldset class="form-group">
+            <legend class="border-bottom mb-4 text-center">
+              Update Course
+            </legend>
+            {{ form|crispy }}
+          </fieldset>
+          <div class="form-group text-center mt-2">
+            <button class="btn btn-outline-info" type="submit">
+              Update Course
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+{% endblock hero_content %}

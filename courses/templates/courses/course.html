@@ -1,0 +1,30 @@
+{% extends 'courses/home.html' %} {% block courses_in_category %}
+<div class="mt-3 mb-5 p-3">
+  <h2>{{cat.name}}</h2>
+  <p>
+    Take one of Udemy’s range of Python courses and learn how to code using this
+    incredibly useful language. Its simple syntax and readability makes Python
+    perfect for Flask, Django, data science, and machine learning. You’ll learn
+    how to build everything from games to sites to apps. Choose from a range of
+    courses that will appeal to
+  </p>
+  <button class="btn btn-primary" type="button">Explore {{cat.name}}</button>
+
+  <div class="row mt-2 p-4 gy-4">
+    {% for course in courses %}
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="card text-center">
+        <a href="{% url 'detail' course.id %}">
+          <img src="{{course.course_img.url}}" class="card-img-top" alt="..." />
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{course.title}}</h5>
+          <p class="card-text">{{course.teacher}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock courses_in_category %}

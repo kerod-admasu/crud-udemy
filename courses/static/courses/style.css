@@ -1,0 +1,109 @@
+body{
+  overflow-x: hidden;
+}
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+  /* to eliminate the default down icon on the drowdown */
+    .dropdown::after {
+display: none;
+}
+
+.middle-screen{
+display: none;
+}
+
+@media (min-width:100px){
+.extra-small-screen{
+display: block;
+}
+.small-screen,.middle-screen,.big-screen{
+display: none;
+}
+}
+@media (min-width:576px){
+.small-screen{
+display:block;
+}
+.big-screen{
+display: none;
+}
+.middle-screen{
+display: none;
+}
+.extra-small-screen{
+display: none;
+}
+}
+@media (min-width:768px){
+.small-screen{
+display: none;
+}
+.big-screen{
+display: none;
+}
+.middle-screen{
+display: block;
+}
+.extra-small-screen{
+display: none;
+}
+}
+@media (min-width:991px){
+.big-screen{
+display: block;
+}
+.small-screen{
+display: none;
+} 
+.middle-screen{
+display: none;
+}
+.extra-small-screen{
+display: none;
+}
+}
+/* to hide the side nav on small screen  and to use left modal as navigation bar*/
+@media (max-width:1024px) {
+side-nav{
+display: none;
+}
+
+}
+
+/* Custom CSS for modal */
+.modal-dialog {
+  width: 40% !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+
+}
+
+.modal-content {
+  min-height: 100vh;
+}
+
+.image-container {
+  max-height: 60vh;
+}
+
+.image-container img {
+  max-height: 100%;
+  width: auto;
+}
+.sid-links:hover{
+  background-color: #ccc;
+  color: #000;
+}
+.profile-btn{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #000;
+  display: inline-block;
+  padding: 10px;
+}
